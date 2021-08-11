@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+:root {
+    --primary-bg-color: #3B82F6;
+    --primary-shadow-color: #BFDBFE;
+    --primary-btn-color: #8B5CF6;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.navigation {
+    padding: 1.5rem;
+    background-color: var(--primary-btn-color);
+}
+
+.navigation h3 {
+    float: left;
+}
+
+.navigation p {
+    text-align: right;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+}
+
+.primary-container {
+    margin: 5rem auto;
+    padding: 5rem;
+    text-align: center;
+    width: 40%;
+    border-radius: 0.5rem;
+    box-shadow: 0.5pt 0.5pt 10pt var(--primary-shadow-color);
+}
+
+.primary-sub-container {
+    margin: 2rem auto;
+    display: block;
+    text-align: center;
+}
+
+.primary-sub-container input {
+    width: 30%;
+    padding: 0.5rem;
+    margin: auto;
+    border-color: transparent;
+    border-radius: 0.5rem;
+    box-shadow: 3pt 3pt 20pt var(--primary-shadow-color);
+}
+
+.primary-sub-container label {
+    margin-right: 0.5rem;
+    font-weight: 800;
+}
+
+.btn-submit {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.5rem;
+    text-align: center;
+    width: 20%;
+    border-color: transparent;
+    border-radius: 0.5rem;
+    box-shadow: 3pt 3pt 20pt var(--primary-shadow-color);
+    background-color: var(--primary-btn-color);
+    color: white;
+    font-weight: bold;
+}
+
+.output {
+    display: none;
+    margin: 1rem auto;
+    padding: 1rem 5rem 1rem 5rem;
+    background-color: var(--primary-btn-color);
+    color: white;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.footer {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color: var(--primary-btn-color);
+    color: white;
+}
+
+.footer ul{
+    list-style: none;
+}
+
+.footer-socials-list {
+    padding: 0;
+}
+
+#footer-socials {
+    margin: 0.5rem;
+    padding: auto 1rem;
+}
+
+.footer-socials-list li{
+    display: inline;
+    list-style-type: none;
+    margin: 0.25rem;
+    text-align: center;
+}
+
+.social-icn{
+    color: white;
+}
+
+#footer-cc-text {
+    display: block;
+    margin: 0.5rem auto;
+}

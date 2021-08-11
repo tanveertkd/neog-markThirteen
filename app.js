@@ -144,29 +144,17 @@ const checkDateForPalindrome = () => {
         const isDatePalindrome = checkIfPalindromeExists(date);
         console.log(isDatePalindrome);
         if(isDatePalindrome){
+            outputDiv.style.display = "block";
             outputDiv.innerText = 'Yes! Your birthday is a palindrome!';
         }else{
             let [counter, findNextDay] = findNextPalindrome(date);
+            outputDiv.style.display = "block";
             outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} days away.`;
         }
     }else{
+        outputDiv.style.display = "block";
         outputDiv.innerText = 'Cant be empty';
     }
 }
 
-btnSubmit.addEventListener('click', checkDateForPalindrome);
-
-const dateS = {
-    day: 12, 
-    month: 2, 
-    year: 2021
-}
-
-// console.log(stringReverse('this'));
-// console.log(checkIfPalindrome('pancake'));
-// console.log(dateToString(dateS));
-// console.log(formatDates(dateS));
-console.log(checkIfPalindromeExists(dateS));
-// console.log(checkForLeapYear(2012));
-// console.log(getNextDate(dateS));
-// console.log(findNextPalindrome(dateS));
+btnSubmit.addEventListener("click", ()=>{setTimeout(checkDateForPalindrome, 2500)});
