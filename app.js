@@ -161,5 +161,6 @@ const checkDateForPalindrome = () => {
 
 btnSubmit.addEventListener("click", ()=>{
     loadGif.style.display = "block";
+    outputDiv.style.display = "none";
     setTimeout(checkDateForPalindrome, 2500);
 });
