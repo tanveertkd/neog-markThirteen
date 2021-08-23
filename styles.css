@@ -142,6 +142,7 @@ body {
         margin: 2.5rem auto;
         padding: 2.5rem;
         width: 60%;
+        min-height: 100%;
     }
 
     .hero h1 {
@@ -179,12 +180,8 @@ body {
     }
 
     .footer {
-        position: absolute;
-        display: block;
-        bottom: 0;
-        width: 100%;
-        margin-top: 1rem;
-        margin: auto;
+        height: 100px;
+        margin-top: -100px;
     }
 
     #footer-cc-text {
