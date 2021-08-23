@@ -77,6 +77,11 @@ body {
     font-weight: bold;
 }
 
+.primary-sub-container-loader {
+    display: none;
+    margin: 2rem auto;
+}
+
 .output {
     display: none;
     margin: 1rem auto;
@@ -125,4 +130,61 @@ body {
 #footer-cc-text {
     display: block;
     margin: 0.5rem auto;
+}
+
+@media (max-width: 600px) {
+    .navigation {
+        padding: 1rem;
+        font-size: smaller;
+    }
+
+    .primary-container {
+        margin: 2.5rem auto;
+        padding: 2.5rem;
+        width: 60%;
+    }
+
+    .hero h1 {
+        text-align: center;
+    }
+    
+    .primary-sub-container {
+        margin: 1rem auto;
+    }
+    
+    .primary-sub-container input {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+    }
+    
+    .primary-sub-container label {
+        display: block;
+        margin: 1rem auto;
+        font-weight: 600;
+    }
+
+    .primary-sub-container-loader {
+        width: 25%;
+    }
+
+    .btn-submit {
+        display: block;
+        width: 50%;
+    }
+    
+    .output {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    #footer-cc-text {
+        margin: 0.25rem auto;
+    }
+
+    #footer-socials {
+        margin: 0.25rem;
+        padding: auto 0.5rem;
+    }
+
 }

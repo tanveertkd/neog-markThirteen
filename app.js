@@ -1,6 +1,7 @@
 const dateInput = document.querySelector("#dob");
 const btnSubmit = document.querySelector('.btn-submit');
 const outputDiv = document.querySelector(".output");
+const loadGif =  document.querySelector(".primary-sub-container-loader");
 
 const stringReverse = (str) => {
     const charArray = str.split('');
@@ -130,6 +131,7 @@ const findNextPalindrome = (date) => {
 }
 
 const checkDateForPalindrome = () => {
+    loadGif.style.display = "none";
     const birthday = dateInput.value;
     
     if(birthday !== ''){
@@ -157,4 +159,7 @@ const checkDateForPalindrome = () => {
     }
 }
 
-btnSubmit.addEventListener("click", ()=>{setTimeout(checkDateForPalindrome, 2500)});
+btnSubmit.addEventListener("click", ()=>{
+    loadGif.style.display = "block";
+    setTimeout(checkDateForPalindrome, 2500);
+});
