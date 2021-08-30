@@ -62,8 +62,6 @@ const checkIfPalindromeExists = (date) => {
         if(checkIfPalindrome(listOfFormats[i])){
             isPalindrome = true;
             break;
-        }else{
-            return isPalindrome;
         }
     }
 
