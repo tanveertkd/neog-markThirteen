@@ -1,6 +1,7 @@
 const dateInput = document.querySelector("#dob");
 const btnSubmit = document.querySelector('.btn-submit');
 const outputDiv = document.querySelector(".output");
+const outputDivTwo = document.querySelector(".output-two");
 const loadGif =  document.querySelector(".primary-sub-container-loader");
 
 const stringReverse = (str) => {
@@ -113,6 +114,33 @@ const getNextDate = (date) => {
     return {day: day, month: month, year: year};
 }
 
+const getPreviousDate = (date) => {
+    let day = date.day-1;
+    let month = date.month;
+    let year = date.year;
+
+    const numberOfDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if(day === 0){
+        month--;
+        if(month === 0){
+            month = 12;
+            day = 31;
+            year--;
+        }else if(month === 2){
+            if(checkForLeapYear(year)){
+                day = 29;
+            }else{
+                day = 28;
+            }
+        }else{
+            day = numberOfDays[month-1];
+        }
+    }
+
+    return {day: day, month: month, year: year};
+}
+
 const findNextPalindrome = (date) => {
     let findNextDay = getNextDate(date);
     let counter = 0;
@@ -126,6 +154,21 @@ const findNextPalindrome = (date) => {
         findNextDay = getNextDate(findNextDay);
     }
     return [counter, findNextDay];
+}
+
+const findPreviousPalindrome = (date) => {
+    let findPreviousDay = getPreviousDate(date);
+    let counter = 0;
+
+    while(1){
+        counter++;
+        let isItAPalindrome = checkIfPalindromeExists(findPreviousDay);
+        if(isItAPalindrome){
+            break;
+        }
+        findPreviousDay = getPreviousDate(findPreviousDay);
+    }
+    return [counter, findPreviousDay];
 }
 
 const checkDateForPalindrome = () => {
@@ -148,8 +191,11 @@ const checkDateForPalindrome = () => {
             outputDiv.innerText = 'Yes! Your birthday is a palindrome!';
         }else{
             let [counter, findNextDay] = findNextPalindrome(date);
+            let [counterTwo, findPreviousDay] = findPreviousPalindrome(date);
             outputDiv.style.display = "block";
+            outputDivTwo.style.display = "block";
             outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} days away.`;
+            outputDivTwo.innerText = `Your birthday is not a palindrome! The previous palindrome date was ${findPreviousDay.day}-${findPreviousDay.month}-${findPreviousDay.year}. Which is ${counterTwo} days away.`;
         }
     }else{
         outputDiv.style.display = "block";
@@ -160,5 +206,6 @@ const checkDateForPalindrome = () => {
 btnSubmit.addEventListener("click", ()=>{
     loadGif.style.display = "block";
     outputDiv.style.display = "none";
+    outputDivTwo.style.display = "none";
     setTimeout(checkDateForPalindrome, 2500);
 });
