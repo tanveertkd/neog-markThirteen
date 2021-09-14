@@ -192,10 +192,14 @@ const checkDateForPalindrome = () => {
         }else{
             let [counter, findNextDay] = findNextPalindrome(date);
             let [counterTwo, findPreviousDay] = findPreviousPalindrome(date);
-            outputDiv.style.display = "block";
-            outputDivTwo.style.display = "block";
-            outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} days away.`;
-            outputDivTwo.innerText = `Your birthday is not a palindrome! The previous palindrome date was ${findPreviousDay.day}-${findPreviousDay.month}-${findPreviousDay.year}. Which is ${counterTwo} days away.`;
+
+            if(counter<counterTwo){
+                outputDiv.style.display = "block";
+                outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} days away.`;
+            }else if(counterTwo<counter){
+                outputDivTwo.style.display = "block";
+                outputDivTwo.innerText = `Your birthday is not a palindrome! The previous palindrome date was ${findPreviousDay.day}-${findPreviousDay.month}-${findPreviousDay.year} which you missed by ${counterTwo} days.`;
+            }
         }
     }else{
         outputDiv.style.display = "block";
