@@ -195,10 +195,18 @@ const checkDateForPalindrome = () => {
 
             if(counter<counterTwo){
                 outputDiv.style.display = "block";
-                outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} days away.`;
+                if(counter === 1){
+                    outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} day away.`;
+                }else{
+                    outputDiv.innerText = `Your birthday is not a palindrome! The next palindrome date is ${findNextDay.day}-${findNextDay.month}-${findNextDay.year}. Which is ${counter} days away.`;
+                }
             }else if(counterTwo<counter){
                 outputDivTwo.style.display = "block";
-                outputDivTwo.innerText = `Your birthday is not a palindrome! The previous palindrome date was ${findPreviousDay.day}-${findPreviousDay.month}-${findPreviousDay.year} which you missed by ${counterTwo} days.`;
+                if(counterTwo === 1){
+                    outputDivTwo.innerText = `Your birthday is not a palindrome! The previous palindrome date was ${findPreviousDay.day}-${findPreviousDay.month}-${findPreviousDay.year} which you missed by ${counterTwo} day.`;
+                }else{
+                    outputDivTwo.innerText = `Your birthday is not a palindrome! The previous palindrome date was ${findPreviousDay.day}-${findPreviousDay.month}-${findPreviousDay.year} which you missed by ${counterTwo} days.`;
+                }
             }
         }
     }else{
@@ -208,8 +216,15 @@ const checkDateForPalindrome = () => {
 }
 
 btnSubmit.addEventListener("click", ()=>{
-    loadGif.style.display = "block";
     outputDiv.style.display = "none";
     outputDivTwo.style.display = "none";
-    setTimeout(checkDateForPalindrome, 2500);
+
+    const birthday = dateInput.value;
+    if(birthday === ''){
+        outputDiv.style.display = "block";
+        outputDiv.innerText = 'Input cant be empty';
+    }else{
+        loadGif.style.display = "block";
+        setTimeout(checkDateForPalindrome, 2500);
+    }
 });
